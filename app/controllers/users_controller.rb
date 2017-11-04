@@ -17,18 +17,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # GET /users/1/edit
-  def edit
-       respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully edited.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+ 
 
   # POST /users
   # POST /users.json
@@ -59,7 +48,7 @@ class UsersController < ApplicationController
       end
     end
   end
-
+private
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
@@ -70,7 +59,6 @@ class UsersController < ApplicationController
     end
   end
 
-  private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
